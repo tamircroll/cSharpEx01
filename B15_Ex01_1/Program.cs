@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Program.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace B15_Ex01_1
+﻿namespace B15_Ex01_1
 {
     public class Program
     {
@@ -15,8 +9,7 @@ namespace B15_Ex01_1
             countAscendingsAndDescending(numbers);
             printAverage(numbers);
             printAverageDigitsInBinary(numbersBinary);
-
-
+            System.Console.WriteLine("Please press 'Enter' to exit");
             System.Console.ReadLine();
         }
 
@@ -28,52 +21,51 @@ namespace B15_Ex01_1
                 sumDigits += binaryNumber.ToString().Length;
             }
 
-            float average = (float) sumDigits / numbersBinary.Length;
+            float average = (float)sumDigits / numbersBinary.Length;
             System.Console.WriteLine("The avarege number of digits in the binary number is " + average);
         }
 
         private static void printAverage(int[] numbers)
         {
-             
             int sum = 0;
-            foreach (int number in numbers)
+            foreach(int number in numbers)
             {
                 sum += number;
             }
 
-            float average = (float) sum / numbers.Length;
+            float average = (float)sum / numbers.Length;
             System.Console.WriteLine("The general avarege of the inserted numbers is " + average);
         }
 
         private static void countAscendingsAndDescending(int[] numbers)
         {
             int sumAscendings = 0, sumDescendings = 0;
-            foreach(int number in numbers)
+            foreach (int number in numbers)
             {
-                bool isAscending = true, isDescending = true;
+                bool v_IsAscending = true, v_IsDescending = true;
                 int tempNumber = number / 10, rightDigit = number % 10;
-                for (int i = 0 ; i < 2 ; i++)
+                for(int i = 0; i < 2; i++)
                 {
                     if (rightDigit <= tempNumber % 10)
                     {
-                        isAscending = false;
+                        v_IsAscending = false;
                     }
 
                     if (rightDigit >= tempNumber % 10)
                     {
-                        isDescending = false;
+                        v_IsDescending = false;
                     }
 
                     rightDigit = tempNumber % 10;
                     tempNumber /= 10;
                 }
 
-                if (isAscending)
+                if(v_IsAscending)
                 {
                     sumAscendings++;
                 }
 
-                if (isDescending)
+                if (v_IsDescending)
                 {
                     sumDescendings++;
                 }
@@ -86,12 +78,12 @@ namespace B15_Ex01_1
         {
             System.Console.Write("The binary numbers are: ");
             int[] numbersBinary = new int[numbers.Length];
-            for(int i = 0 ; i < numbers.Length ; i++)
+            for(int i = 0; i < numbers.Length; i++)
             {
-                int result = 0 , oneMovingBit = 1, tempNumber = numbers[i];
+                int result = 0, oneMovingBit = 1, tempNumber = numbers[i];
                 while (tempNumber != 0)
                  {
-                    if (tempNumber % 2 == 1)
+                    if(tempNumber % 2 == 1)
                     {
                         tempNumber -= 1;
                         result += oneMovingBit;
@@ -113,13 +105,13 @@ namespace B15_Ex01_1
         private static int[] readNumbersFromUser(int numOfNumbersToRead, int numberOfDigits)
         {
             System.Console.WriteLine("Please enter " + numOfNumbersToRead + " numbers with " + numberOfDigits + " digits each");
-            string numberStr = "";
+            string numberStr = string.Empty;
             int[] numbers = new int[numOfNumbersToRead];
-            for (int i = 0 ; i < numOfNumbersToRead ; i++)
+            for(int i = 0; i < numOfNumbersToRead; i++)
             {
                 numberStr = System.Console.ReadLine();
-                bool goodInput = (int.TryParse(numberStr , out numbers[i])) && (numberStr.Length == 3);
-                if (!goodInput)
+                bool v_goodInput = (int.TryParse(numberStr, out numbers[i])) && (numberStr.Length == 3);
+                if (!v_goodInput)
                 {
                     System.Console.WriteLine("The input you entered is invalid. Please try again.");
                     i--;

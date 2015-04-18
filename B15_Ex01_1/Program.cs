@@ -27,18 +27,20 @@ namespace B15_Ex01_1
             {
                 sumDigits += binaryNumber.ToString().Length;
             }
+
             float average = (float) sumDigits / numbersBinary.Length;
             System.Console.WriteLine("The avarege number of digits in the binary number is " + average);
         }
 
         private static void printAverage(int[] numbers)
         {
-            
+             
             int sum = 0;
             foreach (int number in numbers)
             {
                 sum += number;
             }
+
             float average = (float) sum / numbers.Length;
             System.Console.WriteLine("The general avarege of the inserted numbers is " + average);
         }
@@ -76,6 +78,7 @@ namespace B15_Ex01_1
                     sumDescendings++;
                 }
             }
+
             System.Console.WriteLine("The are " + sumAscendings + " numbers which are ascending series and " + sumDescendings + " which are descendings");
         }
 
@@ -103,6 +106,7 @@ namespace B15_Ex01_1
             }
 
             System.Console.WriteLine();
+
             return numbersBinary;
         }
 

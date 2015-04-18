@@ -8,9 +8,9 @@
         public static void Main()
         {
             string sandClock = PrintSendClock(5);
-            System.Console.WriteLine(sandClock);
-            System.Console.WriteLine("Please press 'Enter' to exit");
-            System.Console.ReadLine();
+            Console.WriteLine(sandClock);
+            Console.WriteLine("Please press 'Enter' to exit");
+            Console.ReadLine();
         }
 
         public static string PrintSendClock(int i_clockHeight)

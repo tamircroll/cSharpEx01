@@ -4,113 +4,113 @@
     {
         public static void Main()
         {
-            int[] numbers = readNumbersFromUser(5, 3);
-            int[] numbersBinary = printBinary(numbers);
-            countAscendingsAndDescending(numbers);
-            printAverage(numbers);
-            printAverageDigitsInBinary(numbersBinary);
+            int[] i_Numbers = readNumbersFromUser(5, 3);
+            int[] i_NumbersBinary = printBinary(i_Numbers);
+            countAscendingsAndDescending(i_Numbers);
+            printAverage(i_Numbers);
+            printAverageDigitsInBinary(i_NumbersBinary);
             System.Console.WriteLine("Please press 'Enter' to exit");
             System.Console.ReadLine();
         }
 
-        private static void printAverageDigitsInBinary(int[] numbersBinary)
+        private static void printAverageDigitsInBinary(int[] i_NumbersBinary)
         {
-            int sumDigits = 0;
-            foreach(int binaryNumber in numbersBinary)
+            int i_SumDigits = 0;
+            foreach(int i_BinaryNumber in i_NumbersBinary)
             {
-                sumDigits += binaryNumber.ToString().Length;
+                i_SumDigits += i_BinaryNumber.ToString().Length;
             }
 
-            float average = (float)sumDigits / numbersBinary.Length;
-            System.Console.WriteLine("The avarege number of digits in the binary number is " + average);
+            float i_Average = (float)i_SumDigits / i_NumbersBinary.Length;
+            System.Console.WriteLine("The avarege number of digits in the binary number is " + i_Average);
         }
 
-        private static void printAverage(int[] numbers)
+        private static void printAverage(int[] i_Numbers)
         {
-            int sum = 0;
-            foreach(int number in numbers)
+            int i_Sum = 0;
+            foreach(int i_Number in i_Numbers)
             {
-                sum += number;
+                i_Sum += i_Number;
             }
 
-            float average = (float)sum / numbers.Length;
-            System.Console.WriteLine("The general avarege of the inserted numbers is " + average);
+            float i_Average = (float)i_Sum / i_Numbers.Length;
+            System.Console.WriteLine("The general avarege of the inserted numbers is " + i_Average);
         }
 
-        private static void countAscendingsAndDescending(int[] numbers)
+        private static void countAscendingsAndDescending(int[] i_Numbers)
         {
-            int sumAscendings = 0, sumDescendings = 0;
-            foreach (int number in numbers)
+            int i_SumAscendings = 0, i_SumDescendings = 0;
+            foreach (int i_Number in i_Numbers)
             {
                 bool v_IsAscending = true, v_IsDescending = true;
-                int tempNumber = number / 10, rightDigit = number % 10;
+                int i_TempNumber = i_Number / 10, i_RightDigit = i_Number % 10;
                 for(int i = 0; i < 2; i++)
                 {
-                    if (rightDigit <= tempNumber % 10)
+                    if (i_RightDigit <= i_TempNumber % 10)
                     {
                         v_IsAscending = false;
                     }
 
-                    if (rightDigit >= tempNumber % 10)
+                    if (i_RightDigit >= i_TempNumber % 10)
                     {
                         v_IsDescending = false;
                     }
 
-                    rightDigit = tempNumber % 10;
-                    tempNumber /= 10;
+                    i_RightDigit = i_TempNumber % 10;
+                    i_TempNumber /= 10;
                 }
 
                 if(v_IsAscending)
                 {
-                    sumAscendings++;
+                    i_SumAscendings++;
                 }
 
                 if (v_IsDescending)
                 {
-                    sumDescendings++;
+                    i_SumDescendings++;
                 }
             }
 
-            System.Console.WriteLine("The are " + sumAscendings + " numbers which are ascending series and " + sumDescendings + " which are descendings");
+            System.Console.WriteLine("The are " + i_SumAscendings + " numbers which are ascending series and " + i_SumDescendings + " which are descendings");
         }
 
-        private static int[] printBinary(int[] numbers)
+        private static int[] printBinary(int[] i_Numbers)
         {
             System.Console.Write("The binary numbers are: ");
-            int[] numbersBinary = new int[numbers.Length];
-            for(int i = 0; i < numbers.Length; i++)
+            int[] o_NumbersBinary = new int[i_Numbers.Length];
+            for(int i = 0; i < i_Numbers.Length; i++)
             {
-                int result = 0, oneMovingBit = 1, tempNumber = numbers[i];
-                while (tempNumber != 0)
+                int i_Result = 0, i_OneMovingBit = 1, i_TempNumber = i_Numbers[i];
+                while (i_TempNumber != 0)
                  {
-                    if(tempNumber % 2 == 1)
+                    if(i_TempNumber % 2 == 1)
                     {
-                        tempNumber -= 1;
-                        result += oneMovingBit;
+                        i_TempNumber -= 1;
+                        i_Result += i_OneMovingBit;
                     }
 
-                    tempNumber /= 2;
-                    oneMovingBit *= 10;
+                    i_TempNumber /= 2;
+                    i_OneMovingBit *= 10;
                 }
 
-                numbersBinary[i] = result;
-                System.Console.Write(numbersBinary[i] + " ");
+                o_NumbersBinary[i] = i_Result;
+                System.Console.Write(o_NumbersBinary[i] + " ");
             }
 
             System.Console.WriteLine();
 
-            return numbersBinary;
+            return o_NumbersBinary;
         }
 
-        private static int[] readNumbersFromUser(int numOfNumbersToRead, int numberOfDigits)
+        private static int[] readNumbersFromUser(int i_NumOfNumbersToRead, int i_NumberOfDigits)
         {
-            System.Console.WriteLine("Please enter " + numOfNumbersToRead + " numbers with " + numberOfDigits + " digits each");
-            string numberStr = string.Empty;
-            int[] numbers = new int[numOfNumbersToRead];
-            for(int i = 0; i < numOfNumbersToRead; i++)
+            System.Console.WriteLine("Please enter " + i_NumOfNumbersToRead + " numbers with " + i_NumberOfDigits + " digits each");
+            string i_NumberStr = string.Empty;
+            int[] o_Numbers = new int[i_NumOfNumbersToRead];
+            for(int i = 0; i < i_NumOfNumbersToRead; i++)
             {
-                numberStr = System.Console.ReadLine();
-                bool v_goodInput = (int.TryParse(numberStr, out numbers[i])) && (numberStr.Length == 3);
+                i_NumberStr = System.Console.ReadLine();
+                bool v_goodInput = int.TryParse(i_NumberStr, out o_Numbers[i]) && i_NumberStr.Length == 3;
                 if (!v_goodInput)
                 {
                     System.Console.WriteLine("The input you entered is invalid. Please try again.");
@@ -118,7 +118,7 @@
                 }
             }
 
-            return numbers;
+            return o_Numbers;
         }
     }
 }

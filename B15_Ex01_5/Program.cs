@@ -37,9 +37,9 @@
         {
             char smallest = i_InputChar[0];
 
-            for (int i = 1; i > i_InputChar.Length; i++)
+            for (int i = 1; i < i_InputChar.Length; i++)
             {
-                if (smallest < i_InputChar[i])
+                if (smallest > i_InputChar[i])
                 {
                     smallest = i_InputChar[i];
                 }
@@ -65,7 +65,7 @@
 
         private static void countDigitsBiggerThenFirst(char[] i_InputChar)
         {
-            char sumBigger = '0';
+            int sumBigger = 0;
 
             for (int i = 1; i < i_InputChar.Length; i++ )
             {

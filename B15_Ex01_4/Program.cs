@@ -19,7 +19,7 @@
                 io_Input = Console.ReadLine();
             }
 
-            printIsPolindrom(io_Input);
+            printIsPalindrome(io_Input);
             v_IsNumber = long.TryParse(io_Input, out io_InputInt);
             if (v_IsNumber)
             {
@@ -60,30 +60,30 @@
             Console.WriteLine("The sum of all digits is: " + i_Sum);
         }
 
-        private static void printIsPolindrom(string i_Input)
+        private static void printIsPalindrome(string i_Input)
         {   
-            bool v_IsPolindrom = true;
+            bool v_IsPalindrome = true;
             char[] i_inputAsCharArray = i_Input.ToCharArray();
             for (int i = 0; i < i_inputAsCharArray.Length / 2; i++)
             {
                 if (i_inputAsCharArray[i] != i_inputAsCharArray[i_inputAsCharArray.Length - i - 1])
                 {
-                    v_IsPolindrom = false;
+                    v_IsPalindrome = false;
                 }
             }
-            if (v_IsPolindrom)
+            if (v_IsPalindrome)
             {
-                Console.WriteLine("The input is a polindrom");
+                Console.WriteLine("The input is a palindrome");
             }
             else
             {
-                Console.WriteLine("The input is not a polindrom");
+                Console.WriteLine("The input is not a palindrome");
             }
         }
 
-        private static void printIsPolindrom(int i_Input)
+        private static void printIsPalindrome(int i_Input)
         {
-            printIsPolindrom(i_Input.ToString());
+            printIsPalindrome(i_Input.ToString());
         }
 
         private static bool isValidInput(string i_Input)

@@ -9,29 +9,29 @@
         public static void Main()
         {
             bool v_IsNumber;
-            long io_InputInt;
+            long io_InputLong;
 
             Console.WriteLine("Please enter a string with 10 letters or a number with 10 digits:");
             string io_Input = Console.ReadLine();
 
-            while( isValidInput(io_Input) ) {
+            while (isValidInput(io_Input, out io_InputLong, out v_IsNumber))
+            {
                 Console.WriteLine("Invalid input, please try again:");
                 io_Input = Console.ReadLine();
             }
 
             printIsPalindrome(io_Input);
-            v_IsNumber = long.TryParse(io_Input, out io_InputInt);
             if (v_IsNumber)
             {
-                sumDigits(io_InputInt);
+                sumDigits(io_InputLong);
             }
             else
             {
                 sumCamelCase(io_Input);
             }
 
-            System.Console.WriteLine("Please press 'Enter' to exit");
-            System.Console.ReadLine();
+            Console.WriteLine("Please press 'Enter' to exit");
+            Console.ReadLine();
         }
 
         private static void sumCamelCase(string i_Input)
@@ -46,7 +46,8 @@
                     i_SumCamel++;
                 }
             }
-            Console.WriteLine("The number of camel case letter is: " + i_SumCamel);
+
+            Console.WriteLine(string.Format("The number of camel case letter is: {0}", i_SumCamel));
         }
 
         private static void sumDigits(long i_number)
@@ -57,7 +58,8 @@
                 i_Sum += i_number % 10;
                 i_number /= 10;
             }
-            Console.WriteLine("The sum of all digits is: " + i_Sum);
+
+            Console.WriteLine(string.Format("The sum of all digits is: {0}", i_Sum));
         }
 
         private static void printIsPalindrome(string i_Input)
@@ -86,11 +88,10 @@
             printIsPalindrome(i_Input.ToString());
         }
 
-        private static bool isValidInput(string i_Input)
+        private static bool isValidInput(string i_Input, out long i_number, out bool v_IsNumber)
         {
-            int i_number;
             bool v_isSizeTen = i_Input.Length == 10;
-            bool v_IsNumber = int.TryParse(i_Input, out i_number);
+            v_IsNumber = long.TryParse(i_Input, out i_number);
             bool v_IsString = IsOnlyLetters(i_Input);
 
             return (!v_IsNumber || !v_IsString) && !v_isSizeTen;

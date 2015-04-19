@@ -50,7 +50,7 @@
 
         private static void countDigitsSmallerThenFirst(char[] i_InputChar)
         {
-            char sumSmaller = '9';
+            int sumSmaller = 0;
 
             for (int i = 1; i < i_InputChar.Length; i++)
             {

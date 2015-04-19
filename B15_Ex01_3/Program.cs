@@ -10,18 +10,18 @@
         public static void Main()
         {
             Console.WriteLine("Please enter height of sand clock: ");
-            int i_clockHeightInt;
-            string i_clockHeightStr = Console.ReadLine();
-            bool v_goodInput = int.TryParse(i_clockHeightStr, out i_clockHeightInt);
-            while (!v_goodInput)
+            int clockHeightInt;
+            string clockHeightStr = Console.ReadLine();
+            bool goodInput = int.TryParse(clockHeightStr, out clockHeightInt);
+            while (!goodInput)
             {
                 Console.WriteLine("Invalid input, try Again: ");
-                i_clockHeightStr = Console.ReadLine();
-                v_goodInput = int.TryParse(i_clockHeightStr, out i_clockHeightInt);
+                clockHeightStr = Console.ReadLine();
+                goodInput = int.TryParse(clockHeightStr, out clockHeightInt);
             }
 
-            string i_sandClock = B15_Ex01_2.Program.PrintSendClock(i_clockHeightInt);
-            Console.WriteLine(i_sandClock);
+            string sandClock = B15_Ex01_2.Program.PrintSendClock(clockHeightInt);
+            Console.WriteLine(sandClock);
             Console.WriteLine("Please press 'Enter' to exit");
             Console.ReadLine();
         }

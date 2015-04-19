@@ -21,17 +21,17 @@
             }
 
             StringBuilder result = new StringBuilder(string.Empty);
-            int i_ToIgnore, i_ToDraw;
+            int toIgnore, toDraw;
             for (int i = -i_clockHeight; i <= i_clockHeight; i = i + 2)
             {
-                i_ToIgnore = (i_clockHeight - Math.Abs(i)) / 2;
-                i_ToDraw = Math.Abs(i) + 1;
-                for (int j = 0; j <= i_ToIgnore; j++)
+                toIgnore = (i_clockHeight - Math.Abs(i)) / 2;
+                toDraw = Math.Abs(i) + 1;
+                for (int j = 0; j <= toIgnore; j++)
                 {
                     result.Append(" ");
                 }
 
-                for (int j = 0; j < i_ToDraw; j++)
+                for (int j = 0; j < toDraw; j++)
                 {
                     result.Append("*");
                 }

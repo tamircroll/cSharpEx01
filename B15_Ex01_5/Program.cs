@@ -96,6 +96,6 @@
             }
 
             return inputStr.ToCharArray();
-        } 
+        }
     }
 }

@@ -12,12 +12,12 @@
             Console.WriteLine("Please enter height of sand clock: ");
             int clockHeightInt;
             string clockHeightStr = Console.ReadLine();
-            bool goodInput = int.TryParse(clockHeightStr, out clockHeightInt);
+            bool goodInput = int.TryParse(clockHeightStr, out clockHeightInt) && clockHeightInt >= 0;
             while (!goodInput)
             {
                 Console.WriteLine("Invalid input, try Again: ");
                 clockHeightStr = Console.ReadLine();
-                goodInput = int.TryParse(clockHeightStr, out clockHeightInt);
+                goodInput = int.TryParse(clockHeightStr, out clockHeightInt) && clockHeightInt >= 0;
             }
 
             string sandClock = B15_Ex01_2.Program.PrintSendClock(clockHeightInt);

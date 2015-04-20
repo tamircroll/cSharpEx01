@@ -22,6 +22,7 @@
 
             StringBuilder result = new StringBuilder(string.Empty);
             int toIgnore, toDraw;
+
             for (int i = -i_clockHeight; i <= i_clockHeight; i = i + 2)
             {
                 toIgnore = (i_clockHeight - Math.Abs(i)) / 2;
@@ -36,7 +37,7 @@
                     result.Append("*");
                 }
 
-                result.Append("\n");
+                result.Append(Environment.NewLine);
             }
 
             return result.ToString();

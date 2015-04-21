@@ -9,7 +9,7 @@
         public static void Main()
         {
             bool isNumber;
-            long inputLong;
+            long inputLong = -1;
 
             Console.WriteLine("Please enter a string with 10 letters or a number with 10 digits:");
             string inputStr = Console.ReadLine();
@@ -93,6 +93,11 @@
         {
             bool isSizeTen = i_Input.Length == 10;
             io_IsNumber = long.TryParse(i_Input, out io_Number);
+            if (io_IsNumber && io_Number <= 0)
+            {
+                io_IsNumber = false;
+            }
+
             bool isString = IsOnlyLetters(i_Input);
 
             return (io_IsNumber || isString) && isSizeTen;
@@ -100,18 +105,17 @@
 
         private static bool IsOnlyLetters(string i_Input)
         {
-            bool isOnlyLetters = true;
             char[] inputAsCharArray = i_Input.ToCharArray();
 
             for (int i = 0; i < inputAsCharArray.Length; i++)
             {
                 if (!char.IsLetter(inputAsCharArray[i]))
                 {
-                    isOnlyLetters = false;
+                    return false;
                 }
             }
 
-            return isOnlyLetters;
+            return true;
         }
     }
 }

@@ -89,6 +89,7 @@
             {
                 inputStr = Console.ReadLine();
                 goodInput = int.TryParse(inputStr, out inputInt) && inputStr.Length == 8;
+                goodInput = goodInput && inputInt >= 0;
                 if (!goodInput)
                 {
                     Console.WriteLine("Invalid input, Try again:");
